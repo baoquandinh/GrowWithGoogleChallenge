@@ -1,0 +1,18 @@
+You've learned a lot about web development so far. I want you to take a moment to write down your thoughts about web development here. Answer the following questions:
+  * What new skills have you learned?
+  * What has been easy?
+  * What has been difficult?
+  * How have you used the problem solving strategies from the first project to overcome challenges so far?
+
+---
+
+Your response goes here!
+
+
+1) New skils that I have learn in this lesson is how to correctly indent and format HTML code. In additino, I understand how there are three section to every HTML. The HTML, HEAD, and BODY portion.
+
+2) Overall, the first lesson was easy since it was revolving around changing heading and creating links. Even so, I am very exciting on what is to come.
+
+3) Nothing has been difficult yet
+
+4) Using Mozillia's MDN web docs was extremely helpful. Not only did they provide easy access to search up syntax, but there are explanations on how each is used. In addition, the best example was when HTML is described as one big tree. That helps me visualize how my code should look and how syntax should be placed.
