@@ -1,0 +1,31 @@
+/* add your CSS here */
+
+#animal-profile-section {
+    width: 300px;
+    border: solid;
+    border-color: gray;
+    box-shadow: 5px 10px rgb(177, 173, 173);
+    padding: 20px;
+}
+
+#animal-fact-section {
+    border: solid;
+    border-color: gray;
+    padding: 10px 20px 10px 20px;
+}
+
+.keywords {
+    font-weight: bold;
+}
+
+.facts {
+    font-style: italic;
+}
+
+.fact-list {
+    list-style-type: none;
+}
+
+img {
+    padding-bottom: 20px;
+}
