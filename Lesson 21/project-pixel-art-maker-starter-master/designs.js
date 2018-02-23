@@ -40,7 +40,6 @@ function setColor(that) {
     }
 }
 
-
 // Changes color of square on click
 canvas.on('click', 'td', function(){
     // Will remove the color on the td if another color is already present
