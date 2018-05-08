@@ -1,4 +1,5 @@
-body, html {
+body, 
+html {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -11,11 +12,20 @@ body {
   color: #424242;
 }
 
-h1, h2, h3, h4, h5 {
+h1,
+h2,
+h3,
+h4,
+h5 {
   margin: 0; 
 }
 
-header, nav, footer, section, article, div {
+header,
+nav, 
+footer, 
+section, 
+article, 
+div {
   box-sizing: border-box;
 }
 
@@ -169,6 +179,7 @@ main {
 
 .top-news {
   height: 300px;
+  width: 100%;
   border-bottom: 1px solid #E0E0E0;
   padding: 1em;
 }
@@ -212,6 +223,7 @@ main {
  */
 
 .scores {
+  width: 100%;
   padding-top: 1em;
 }
 
@@ -259,6 +271,7 @@ main {
  */
 
 .weather {
+  width: 100%;
   padding: 1em;
 }
 
@@ -308,12 +321,13 @@ main {
 
 /*
  *
- * Weather
+ * Recent News
  *
  */
 
 .recent-news {
   clear: both;
+  width: 100%;
   padding: 1em;
 }
 
@@ -363,4 +377,5 @@ footer li {
 footer a {
   text-decoration: none;
   color: #333;
+  padding: 1.5em;
 }
