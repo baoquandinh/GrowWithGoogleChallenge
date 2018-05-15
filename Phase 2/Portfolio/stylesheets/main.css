@@ -181,12 +181,15 @@ main {
 
 /* Set a specific color for each brand */
 
-/* Facebook */
 
 .footer {
     display: block;
     position: relative;
 }
+
+/*Using the CSS library from
+https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css
+*/
 
 .fa-linkedin {
     background: #3B5998;
