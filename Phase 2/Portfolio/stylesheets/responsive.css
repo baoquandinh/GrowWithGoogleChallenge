@@ -15,14 +15,30 @@
     flex-grow: 1;
 }
 
-@media screen and (max-width: 348px){
-    .header {
-        padding-bottom: 1.5em;
+@media screen and (max-width: 354px) {
+
+    .header_logo_picture {
+        width: 80px;
+        height: 80px;
+    }
+
+    .header_name_wrapper {
+        float: right;
+        margin-top: 20px;
+    }
+
+    .header_name {
+        font-size: 20px;
+    }
+
+    .header_description {
+        font-size: 10px;
     }
 }
 
+
 /*For screen smaller than 420px*/
-@media screen and (max-width: 420px) {
+@media screen and (min-width: 355px) and (max-width: 420px) {
 
     .header_logo_picture {
         width: 100px;
@@ -46,6 +62,10 @@
     .header_name_wrapper {
         float: right;
         vertical-align: bottom;
+    }
+
+    .featured_work_text {
+        font-size: 1.5em;
     }
 
 }
