@@ -8,11 +8,17 @@ body {
     padding: .5em;
 }
 
+a,
 h1,
 h2,
 h3,
-p {
+p,
+.featured_work_button {
     color: #F0F3BD;
+}
+
+a {
+    text-decoration: none;
 }
 
 /*
@@ -35,6 +41,7 @@ p {
 .header_name_wrapper {
     display: inline-block;
     position: relative;
+    margin-top: 30px;
     vertical-align: text-bottom;
 }
 
@@ -108,7 +115,21 @@ main {
     text-align: left;
     order: 1;
     font-size: 2.5em;
+    margin-top: 5px;
 }
+
+.featured_work_button {
+    z-index: 11;
+    margin-left: 10%;
+    border: 1px solid;
+    border-radius: 290486px;
+    border-color: #028090;
+    width: 80%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+
 
 .animal_card_picture,
 .arcade_game_picture,
@@ -123,6 +144,7 @@ main {
     border-radius: 5%;
 }
 
+profile_picture_wrapp
 .animal_card,
 .pixel_maker,
 .arcade_game,

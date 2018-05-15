@@ -23,13 +23,10 @@
 
 /*For screen smaller than 420px*/
 @media screen and (max-width: 420px) {
-    .header {
-        padding-bottom: 1em;
-    }
 
     .header_logo_picture {
         width: 100px;
-        height: 100%;
+        height: 100px;
     }
 
     .header_name {
@@ -56,13 +53,10 @@
 /*For small monitors and laptops*/
 @media screen and (min-width: 421px) {
 
-    .header {
-        padding-bottom: 3em;
-    }
 
     .header_logo_picture {
-        height: auto;
-        width: auto;
+        height: 100px;
+        width: 100px;
     }
     
     .header_name_wrapper {
@@ -75,7 +69,7 @@
 
     .header_description {
         font-size: .8em;
-        margin-top: 27px;
+        margin-top: -5%;
     }
 
     .featured_work_text {
@@ -86,7 +80,7 @@
 
     .animal_card,
     .pixel_maker,
-    .arcade_game
+    .arcade_game,
     .memory_game,
     .restaurant_review,
     .neighborhood_map {
@@ -95,10 +89,27 @@
 }
 
 /*Ipads and large screens*/
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 520px) {
+    .header_logo_picture {
+        height: 150px;
+        width: 150px;
+    }
 
-    .header {
-        padding-bottom: 1em;
+    .header_name_wrapper {
+        margin-top: 55px;
+    }
+
+    .header_name {
+        font-size: 2em;
+    }
+}
+
+
+@media screen and (min-width: 630px) {
+
+    .header_logo_picture {
+        height: 100%;
+        width: 100%;
     }
 
     .header_name {
@@ -109,20 +120,20 @@
     .header,
     .container,
     .footer {
-        width: 720px;
+        width: 600px;
         margin-right: auto;
         margin-left: auto;
     }
-}
+/*}*/
 
-@media screen and (min-width: 850px) {
-
-    .header {
-        padding-bottom: 3.5em;
-    }
+/*@media screen and (min-width: 850px) {*/
 
     .header_name {
         font-size: 3em;
+    }
+
+    .header_description {
+        font-size: 1em;
     }
 
     .featured_work_text {
@@ -162,7 +173,7 @@
 
     .profile_picture {
         width: auto;
-        height: 600px;
+        height: auto;
     }
 
 }
