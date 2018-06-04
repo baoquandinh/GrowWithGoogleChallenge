@@ -34,7 +34,6 @@ function shuffle(array) {
     return array;
 }
 
-
 function createCards() {
     for (let card in cards) {
         // console.log(cards[card]);
@@ -42,22 +41,21 @@ function createCards() {
     }
     deck.appendChild(cardFragment);
 }
-/*
-*
-* Sets up each card and assign them a symbol
-*
-*/
 
+//Sets up each card and assign them a symbol
 function create(symbol) {
     const newList = document.createElement('li');
     const newItem = document.createElement('i');
     newList.className = `card `;
     newItem.className = `fa fa-${symbol}`;
     newList.appendChild(newItem);
+    newList.addEventListener('click', flip);
     cardFragment.appendChild(newList);
 }
 
-
+function flip() {
+    console.log("This card was clicked");
+}
 /*
  * set up the event listener for a card. If a card is clicked:
  *  - display the card's symbol (put this functionality in another function that you call from this one)
@@ -77,7 +75,8 @@ function create(symbol) {
 *
 */
 const restartButton = document.querySelector('.restart');
-restartButton.addEventListener('click', function () {
-    restartGame();
-});
+restartButton.addEventListener('click', restart);
 
+function restart() {
+    console.log("You restarted the game!");
+}
