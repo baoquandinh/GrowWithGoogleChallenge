@@ -23,14 +23,14 @@ function makeGrid(){
     column = ('<td></td>');
 
     // Checking input before making grid
-    console.log("Checking input before making grid...")
+    console.log("Checking input before making grid...");
     if ((height <= 0 || height > 50) || (width <= 0 || width > 50)) {
         console.log("NOPE, try again");
         //alert.apply("Fail");
     } else {
         // Crates the row
         clearGrid();
-        console.log("Making the grid...")
+        console.log("Making the grid...");
         for (var i = 1; i <= height; i++){
             canvas.append(row);
             //console.log("Row: " + i);

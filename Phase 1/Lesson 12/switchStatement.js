@@ -20,38 +20,38 @@ and a Doctoral degree earned an average of $84,396/year.
 
 switch (education) {
     case "no high school diploma":
-        salary = "$25,636"
+        salary = "$25,636";
         salary.toLocaleString("en-US");
-        console.log("In 2015, a person with " + education + " earned an average of " + salary + "/year.")
+        console.log("In 2015, a person with " + education + " earned an average of " + salary + "/year.");
         break;
     case "a high school diploma":
-        salary = "$35,256"
+        salary = "$35,256";
         salary.toLocaleString("en-US");
-        console.log("In 2015, a person with " + education + " earned an average of " + salary + "/year.")
+        console.log("In 2015, a person with " + education + " earned an average of " + salary + "/year.");
         break;
     case "an Associate's degree":
-        salary = "$41,496"
+        salary = "$41,496";
         salary.toLocaleString("en-US");
-        console.log("In 2015, a person with " + education + " earned an average of " + salary + "/year.")
+        console.log("In 2015, a person with " + education + " earned an average of " + salary + "/year.");
         break;
     case "a Bachelor's degree":
-        salary = "$59,124"
+        salary = "$59,124";
         salary.toLocaleString("en-US");
-        console.log("In 2015, a person with " + education + " earned an average of " + salary + "/year.")
+        console.log("In 2015, a person with " + education + " earned an average of " + salary + "/year.");
         break;
     case "a Master's degree":
-        salary = "$69,732"
+        salary = "$69,732";
         salary.toLocaleString("en-US");
-         console.log("In 2015, a person with " + education + " earned an average of " + salary + "/year.")
+         console.log("In 2015, a person with " + education + " earned an average of " + salary + "/year.");
         break;
     case "a Professional degree":
-        salary = "$89,960"
+        salary = "$89,960";
         salary.toLocaleString("en-US");
-        console.log("In 2015, a person with " + education + " earned an average of " + salary + "/year.")
+        console.log("In 2015, a person with " + education + " earned an average of " + salary + "/year.");
         break;
     case "a Doctoral degree":
-        salary = "$84,396"
+        salary = "$84,396";
         salary.toLocaleString("en-US");
-        console.log("In 2015, a person with " + education + " earned an average of " + salary + "/year.")
+        console.log("In 2015, a person with " + education + " earned an average of " + salary + "/year.");
         break;
 }
