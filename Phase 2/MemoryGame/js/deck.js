@@ -1,7 +1,6 @@
 // Create a list that holds all the card names
-
-
 const cardNames = ['diamond', 'paper-plane-o', 'anchor', 'bolt', 'cube', 'anchor', 'leaf', 'bicycle', 'diamond', 'bomb', 'leaf', 'bomb', 'bolt', 'bicycle', 'paper-plane-o', 'cube'];
+
 const deckElement = document.querySelector('.deck');
 const cardFragment = document.createDocumentFragment();
 
@@ -25,14 +24,15 @@ class Deck {
             cardNames[currentIndex] = cardNames[randomIndex];
             cardNames[randomIndex] = temporaryValue;
         }
-        return this.cards;
+        return cards;
     }
 
+    // Creates the card object and adds them to the deck
     create(){
         for (let cardIndex in cardNames) {
             // console.log(cards[card]);
             let cardName = cardNames[cardIndex];
-            let card = new Card(cardFragment, cardName, cards);
+            let card = new Card(cardFragment, cardName);
             cards.push(card);
         }
         console.log(cards);

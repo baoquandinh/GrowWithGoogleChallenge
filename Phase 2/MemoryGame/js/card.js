@@ -1,7 +1,9 @@
 class Card {
-    constructor(cardFragment, symbol, cards){
+    constructor(cardFragment, symbol){
         this.isFlipped = false;
         this.symbol = symbol;
+        this.index = 0;
+
         this.listItem = document.createElement('li');
         this.icon = document.createElement('i');
         this.listItem.className = `card`;
@@ -17,8 +19,9 @@ class Card {
         if (item.classList.contains('card')) {
             item.classList.add('show');
         }
-        this.isFlipped = true;
-        console.log(evt);
-        console.log(item.className);
+        game.updateMoves();
+        console.log(game.counter);
+        // Adds 1 to the moves counter
+
     }
 }

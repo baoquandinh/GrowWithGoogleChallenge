@@ -4,24 +4,32 @@
 *  - Monitor scores, turns, and player rating
 *  - Restarts the game
 */
-const startTime = performance.now();
-const deck = new Deck();
-deck.create();
-deck.shuffle();
-const endTime = performance.now();
-console.log(endTime - startTime + ` milliseconds`);
 
-/*
-*
-*  Controls the game board and manages restart and performance
-*
-*/
-const restartButton = document.querySelector('.restart');
-restartButton.addEventListener('click', restart);
+class Game {
+    constructor() {
+        this.counter = 0;
+        this.moves = document.querySelector(".moves");
 
-function restart() {
-    console.log("You restarted the game!");
+    }
+
+    start() {
+        const deck = new Deck();
+        deck.shuffle();
+        deck.create();
+    }
+    restart() {
+        console.log("Restarting the game");
+        this.counter = 0;
+        //game.start();
+    }
+
+    updateMoves() {
+        this.counter += 1;
+        this.moves.textContent = String(this.counter);
+        console.log(this.moves);
+    }
 }
+
 
 
 
