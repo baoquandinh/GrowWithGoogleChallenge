@@ -54,8 +54,6 @@ class Game {
             matchingCardArray.length = 0;
         }
         console.log(matchingCardArray);
-
-
     }
 }
 

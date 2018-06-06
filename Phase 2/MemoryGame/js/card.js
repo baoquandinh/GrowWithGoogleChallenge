@@ -26,6 +26,5 @@ class Card {
         if (game.counter % 2 == 0) {
             game.checkForMatch();
         }
-
     }
 }
