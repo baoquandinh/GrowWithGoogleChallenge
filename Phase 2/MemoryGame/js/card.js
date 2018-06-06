@@ -8,7 +8,8 @@ class Card {
         this.icon = document.createElement('i');
         this.listItem.className = `card`;
         this.icon.className = `fa fa-${symbol}`;
-        this.listItem.addEventListener('mousedown', this.flip);
+        this.listItem.addEventListener('mousedown', this.flip.bind(this));
+        console.log(this.listItem);
         this.listItem.appendChild(this.icon);
         cardFragment.appendChild(this.listItem);
     }
@@ -20,8 +21,11 @@ class Card {
             item.classList.add('show');
         }
         game.updateMoves();
-        console.log(game.counter);
-        // Adds 1 to the moves counter
+        matchingCardArray.push(this);
+        console.log(this);
+        if (game.counter % 2 == 0) {
+            game.checkForMatch();
+        }
 
     }
 }

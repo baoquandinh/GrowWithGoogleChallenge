@@ -2,7 +2,6 @@
 
 let game = new Game();
 game.start();
-console.log(game.counter);
 // const endTime = performance.now();
 // console.log(endTime - startTime + ` milliseconds`);
 

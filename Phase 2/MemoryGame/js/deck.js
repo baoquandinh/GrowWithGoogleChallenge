@@ -10,7 +10,18 @@ let cards = [];
 // Creates a deck object
 class Deck {
     constructor() {
-        this.cards = [];
+        //this.cards = [];
+    }
+
+    // Creates the card object and adds them to the deck
+    create(){
+        for (let cardIndex in cardNames) {
+            let cardName = cardNames[cardIndex];
+            let card = new Card(cardFragment, cardName);
+            cards.push(card);
+        }
+        console.log(cards);
+        deckElement.appendChild(cardFragment);
     }
 
     // Shuffle function from http://stackoverflow.com/a/2450976
@@ -27,17 +38,7 @@ class Deck {
         return cards;
     }
 
-    // Creates the card object and adds them to the deck
-    create(){
-        for (let cardIndex in cardNames) {
-            // console.log(cards[card]);
-            let cardName = cardNames[cardIndex];
-            let card = new Card(cardFragment, cardName);
-            cards.push(card);
-        }
-        console.log(cards);
-        deckElement.appendChild(cardFragment);
-    }
+
 
 }
 
