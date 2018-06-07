@@ -39,22 +39,36 @@ class Game {
         }
     }
 
+    match() {
+        for (let card in matchingCardArray) {
+            matchingCardArray[card].isMatched = true;
+        }
+        console.log(matchingCardArray.length);
+        matchingCardArray.length = 0;
+    }
+
+    noMatch() {
+        for (let card in matchingCardArray) {
+            matchingCardArray[card].listItem.className = 'card';
+            matchingCardArray[card].isFlipped = false;
+            console.log(matchingCardArray[card]);
+        }
+        matchingCardArray.length = 0;
+    }
+
     // Checks the two selected cards to see if they are a match
     checkForMatch() {
-        console.log("Cards are being checked");
-        console.log(matchingCardArray);
-        console.log(matchingCardArray[0].symbol);
-        console.log(matchingCardArray[1].symbol);
         // if the cards are matching, leave flipped otherwise, flipped them back
         if (matchingCardArray[0].symbol === matchingCardArray[1].symbol) {
-            console.log("Nice they match!");
-            matchingCardArray.length = 0;
+            game.match();
+
         } else {
             console.log("Sorry they do not match!");
-            matchingCardArray.length = 0;
+            setTimeout('game.noMatch()',1500);
         }
-        console.log(matchingCardArray);
     }
+
+
 }
 
 

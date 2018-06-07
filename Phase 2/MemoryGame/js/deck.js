@@ -20,7 +20,7 @@ class Deck {
             let card = new Card(cardFragment, cardName);
             cards.push(card);
         }
-        console.log(cards);
+        //console.log(cards);
         deckElement.appendChild(cardFragment);
     }
 
