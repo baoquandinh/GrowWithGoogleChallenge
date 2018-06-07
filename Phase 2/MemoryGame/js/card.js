@@ -1,5 +1,6 @@
 class Card {
     constructor(cardFragment, symbol){
+        this.isMatched = false;
         this.isFlipped = false;
         this.symbol = symbol;
         this.index = 0;
@@ -9,22 +10,35 @@ class Card {
         this.listItem.className = `card`;
         this.icon.className = `fa fa-${symbol}`;
         this.listItem.addEventListener('mousedown', this.flip.bind(this));
-        console.log(this.listItem);
+        //console.log(this.listItem);
         this.listItem.appendChild(this.icon);
         cardFragment.appendChild(this.listItem);
     }
 
      // Flips the card
      flip(evt) {
-        let item = evt.target;
-        if (item.classList.contains('card')) {
-            item.classList.add('show');
+        if (matchingCardArray.length === 2 ) {
+            console.log("Please wait");
+        } else {
+            let item = evt.target;
+            if (item.classList.contains('card')) {
+                item.classList.add('show');
+                item.classList.add('open');
+            }
+            if (this.isFlipped === true || this.isMatched === true) {
+                console.log("Card is already flipped or has a matching pair");
+            } else {
+                this.isFlipped = true;
+                game.updateMoves();
+                matchingCardArray.push(this);
+                console.log(this);
+
+                if (game.counter % 2 == 0) {
+                    game.checkForMatch();
+                }
+            }
         }
-        game.updateMoves();
-        matchingCardArray.push(this);
-        console.log(this);
-        if (game.counter % 2 == 0) {
-            game.checkForMatch();
-        }
+
+
     }
 }
