@@ -10,7 +10,7 @@ class Card {
         this.listItem.className = `card`;
         this.icon.className = `fa fa-${symbol}`;
         this.listItem.addEventListener('mousedown', this.flip.bind(this));
-        //console.log(this.listItem);
+        console.log(this.listItem);
         this.listItem.appendChild(this.icon);
         cardFragment.appendChild(this.listItem);
     }
@@ -31,7 +31,6 @@ class Card {
                 this.isFlipped = true;
                 game.updateMoves();
                 matchingCardArray.push(this);
-                console.log(this);
 
                 if (game.counter % 2 == 0) {
                     game.checkForMatch();
@@ -41,4 +40,9 @@ class Card {
 
 
     }
+
+    remove() {
+        this.listItem.outerHTML = "";
+    }
+
 }
