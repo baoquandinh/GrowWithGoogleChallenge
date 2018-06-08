@@ -12,7 +12,7 @@ class Game {
         this.counter = 0;
         this.moveCounter = 0;
         this.moves = document.querySelector(".moves");
-
+        this.stars = document.querySelector(".stars");
     }
     // Creates a new deck and randomizes the card position
     start() {
@@ -23,9 +23,6 @@ class Game {
 
     // Restart the game with the same deck, just randomizes the position and resets move count
     restart() {
-        console.log("Restarting the game");
-        console.log("The original deck")
-        console.log(cards);
         game.counter = 0;
         game.moveCounter = 0;
         game.moves.textContent = String(game.moveCounter);
@@ -34,20 +31,22 @@ class Game {
         }
         cards = [];
         game.start();
-        console.log(cards);
-
-
     }
 
     // Update the move counter per flip
     updateMoves() {
         this.counter += 1;
-        if (this.counter % 2 == 0) {
+        if (this.counter % 2 === 0) {
             this.moveCounter += 1;
             this.moves.textContent = String(this.moveCounter);
         }
     }
 
+    updateStars() {
+        this.stars.removeChild(this.stars.childNodes[0]);
+    }
+
+    // Show that cards are matching
     match() {
         for (let card in matchingCardArray) {
             matchingCardArray[card].isMatched = true;
@@ -56,6 +55,7 @@ class Game {
         matchingCardArray.length = 0;
     }
 
+    // Cards that don't match are flipped back over
     noMatch() {
         for (let card in matchingCardArray) {
             matchingCardArray[card].listItem.className = 'card';
@@ -66,16 +66,20 @@ class Game {
 
     // Checks the two selected cards to see if they are a match
     checkForMatch() {
+        if (this.moveCounter === 5) {
+            game.updateStars();
+        }
+        if (this.moveCounter === 8) {
+            game.updateStars();
+        }
         // if the cards are matching, leave flipped otherwise, flipped them back
         if (matchingCardArray[0].symbol === matchingCardArray[1].symbol) {
             game.match();
 
         } else {
-            setTimeout('game.noMatch()',1500);
+            setTimeout('game.noMatch()', 1500);
         }
     }
-
-
 }
 
 
