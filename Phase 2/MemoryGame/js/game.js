@@ -16,7 +16,7 @@ class Game {
     }
     // Creates a new deck and randomizes the card position
     start() {
-        const deck = new Deck();
+        let deck = new Deck();
         deck.shuffle();
         deck.create();
     }
@@ -24,10 +24,19 @@ class Game {
     // Restart the game with the same deck, just randomizes the position and resets move count
     restart() {
         console.log("Restarting the game");
+        console.log("The original deck")
+        console.log(cards);
         game.counter = 0;
         game.moveCounter = 0;
         game.moves.textContent = String(game.moveCounter);
+        for (let card in cards) {
+            cards[card].remove();
+        }
+        cards = [];
+        game.start();
         console.log(cards);
+
+
     }
 
     // Update the move counter per flip
@@ -42,8 +51,8 @@ class Game {
     match() {
         for (let card in matchingCardArray) {
             matchingCardArray[card].isMatched = true;
+            matchingCardArray[card].listItem.className = 'card match';
         }
-        console.log(matchingCardArray.length);
         matchingCardArray.length = 0;
     }
 
@@ -51,7 +60,6 @@ class Game {
         for (let card in matchingCardArray) {
             matchingCardArray[card].listItem.className = 'card';
             matchingCardArray[card].isFlipped = false;
-            console.log(matchingCardArray[card]);
         }
         matchingCardArray.length = 0;
     }
@@ -63,7 +71,6 @@ class Game {
             game.match();
 
         } else {
-            console.log("Sorry they do not match!");
             setTimeout('game.noMatch()',1500);
         }
     }
