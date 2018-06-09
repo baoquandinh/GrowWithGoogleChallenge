@@ -11,6 +11,7 @@ class Game {
     constructor() {
         this.counter = 0;
         this.moveCounter = 0;
+        this.wrongCounter = 0;
         this.moves = document.querySelector(".moves");
         this.stars = document.querySelector(".stars");
     }
@@ -25,11 +26,13 @@ class Game {
     restart() {
         game.counter = 0;
         game.moveCounter = 0;
+        game.wrongCounter = 0;
         game.moves.textContent = String(game.moveCounter);
         for (let card in cards) {
             cards[card].remove();
         }
         cards = [];
+        matchingCardArray = [];
         game.start();
     }
 
@@ -43,7 +46,7 @@ class Game {
     }
 
     updateStars() {
-        this.stars.removeChild(this.stars.childNodes[0]);
+        this.stars.removeChild(this.stars.lastElementChild);
     }
 
     // Show that cards are matching
@@ -61,15 +64,17 @@ class Game {
             matchingCardArray[card].listItem.className = 'card';
             matchingCardArray[card].isFlipped = false;
         }
+        game.wrongCounter += 1;
         matchingCardArray.length = 0;
     }
 
     // Checks the two selected cards to see if they are a match
     checkForMatch() {
-        if (this.moveCounter === 5) {
+        if (this.wrongCounter === 2) {
             game.updateStars();
+
         }
-        if (this.moveCounter === 8) {
+        if (this.wrongCounter === 4) {
             game.updateStars();
         }
         // if the cards are matching, leave flipped otherwise, flipped them back
@@ -77,7 +82,7 @@ class Game {
             game.match();
 
         } else {
-            setTimeout('game.noMatch()', 1500);
+            setTimeout('game.noMatch()', 1000);
         }
     }
 }
