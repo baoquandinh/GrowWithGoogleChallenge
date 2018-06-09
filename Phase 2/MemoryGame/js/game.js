@@ -70,11 +70,11 @@ class Game {
 
     // Checks the two selected cards to see if they are a match
     checkForMatch() {
-        if (this.wrongCounter === 2) {
+        if (this.wrongCounter === 8) {
             game.updateStars();
 
         }
-        if (this.wrongCounter === 4) {
+        if (this.wrongCounter === 16) {
             game.updateStars();
         }
         // if the cards are matching, leave flipped otherwise, flipped them back
