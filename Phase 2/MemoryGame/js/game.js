@@ -80,8 +80,10 @@ class Game {
         // if the cards are matching, leave flipped otherwise, flipped them back
         if (matchingCardArray[0].symbol === matchingCardArray[1].symbol) {
             game.match();
-
         } else {
+            for (let card in matchingCardArray) {
+                matchingCardArray[card].listItem.classList.add('no-match');
+            }
             setTimeout('game.noMatch()', 1000);
         }
     }
