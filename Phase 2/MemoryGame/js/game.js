@@ -7,6 +7,7 @@
 
 let matchingCardArray = [];
 let starList = document.querySelector('.stars');
+let starFragment = document.createDocumentFragment();
 
 
 class Game {
@@ -17,7 +18,7 @@ class Game {
         this.moves = document.querySelector(".moves");
         this.stars = document.querySelector(".stars");
     }
-    // Creates a new deck and randomizes the card position
+    // Creates a new deck and shuffles
     start() {
         let deck = new Deck();
         deck.shuffle();
@@ -26,10 +27,7 @@ class Game {
 
     // Restart the game with the same deck, just randomizes the position and resets move count along with star counter
     restart() {
-        game.counter = 0;
-        game.moveCounter = 0;
-        game.wrongCounter = 0;
-        game.moves.textContent = String(game.moveCounter);
+        game.resetCounter();
         game.resetStars();
         for (let card in cards) {
             cards[card].remove();
@@ -48,20 +46,38 @@ class Game {
         }
     }
 
+    // Resets all the counters
+    resetCounter() {
+        game.counter = 0;
+        game.moveCounter = 0;
+        game.wrongCounter = 0;
+        game.moves.textContent = String(game.moveCounter);
+    }
+
+    // Removes the last child element from the 'star' parent node
     removeStars() {
         this.stars.removeChild(this.stars.lastElementChild);
     }
 
+    // Regardless of how many stars are left, this will set the stars back to 3
     resetStars() {
+        console.log('here');
+        console.log(this);
         this.starListItem =  document.createElement('li');
         this.starItem = document.createElement('i');
         this.starItem.className = 'fa fa-star';
         this.starCounter = starList.childElementCount;
+        if (this.starCounter === 3) {
+            return;
+        }
+        console.log(this);
         while (this.starCounter < 3) {
             this.starListItem.appendChild(this.starItem);
+            starFragment.appendChild(this.starListItem);
             this.starCounter++;
-            starList.appendChild(this.starListItem);
         }
+
+        starList.appendChild(starFragment);
     }
 
     // Show that cards are matching
@@ -89,7 +105,7 @@ class Game {
             game.removeStars();
 
         }
-        if (this.wrongCounter === 16) {
+        if (this.wrongCounter === 2) {
             game.removeStars();
         }
         // if the cards are matching, leave flipped otherwise, flipped them back
