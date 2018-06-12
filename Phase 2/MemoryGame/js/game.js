@@ -7,8 +7,6 @@
 
 let matchingCardArray = [];
 let starList = document.querySelector('.stars');
-const starFragment = document.createDocumentFragment();
-
 
 
 class Game {
