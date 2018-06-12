@@ -3,7 +3,6 @@ class Card {
         this.isMatched = false;
         this.isFlipped = false;
         this.symbol = symbol;
-
         this.listItem = document.createElement('li');
         this.icon = document.createElement('i');
         this.listItem.className = `card`;

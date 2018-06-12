@@ -6,6 +6,10 @@
 */
 
 let matchingCardArray = [];
+let starList = document.querySelector('.stars');
+const starFragment = document.createDocumentFragment();
+
+
 
 class Game {
     constructor() {
@@ -22,12 +26,13 @@ class Game {
         deck.create();
     }
 
-    // Restart the game with the same deck, just randomizes the position and resets move count
+    // Restart the game with the same deck, just randomizes the position and resets move count along with star counter
     restart() {
         game.counter = 0;
         game.moveCounter = 0;
         game.wrongCounter = 0;
         game.moves.textContent = String(game.moveCounter);
+        game.resetStars();
         for (let card in cards) {
             cards[card].remove();
         }
@@ -45,8 +50,20 @@ class Game {
         }
     }
 
-    updateStars() {
+    removeStars() {
         this.stars.removeChild(this.stars.lastElementChild);
+    }
+
+    resetStars() {
+        this.starListItem =  document.createElement('li');
+        this.starItem = document.createElement('i');
+        this.starItem.className = 'fa fa-star';
+        this.starCounter = starList.childElementCount;
+        while (this.starCounter < 3) {
+            this.starListItem.appendChild(this.starItem);
+            this.starCounter++;
+            starList.appendChild(this.starListItem);
+        }
     }
 
     // Show that cards are matching
@@ -70,12 +87,12 @@ class Game {
 
     // Checks the two selected cards to see if they are a match
     checkForMatch() {
-        if (this.wrongCounter === 8) {
-            game.updateStars();
+        if (game.wrongCounter === 1) {
+            game.removeStars();
 
         }
         if (this.wrongCounter === 16) {
-            game.updateStars();
+            game.removeStars();
         }
         // if the cards are matching, leave flipped otherwise, flipped them back
         if (matchingCardArray[0].symbol === matchingCardArray[1].symbol) {
