@@ -1,6 +1,15 @@
-.shake {
+.card:hover {
+    background: -50%;
+}
+
+.shake-incorrect {
     animation: shake 0.3s;
     animation-iteration-count: infinite;
+}
+
+.shake-correct {
+    animation: shake 0.3s;
+    animation-iteration-count: inherit;
 }
 
 @keyframes shake {
