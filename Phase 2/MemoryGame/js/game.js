@@ -84,8 +84,9 @@ class Game {
     match() {
         for (let card in matchingCardArray) {
             matchingCardArray[card].isMatched = true;
-            matchingCardArray[card].listItem.className = 'card match';
+            matchingCardArray[card].listItem.className = 'card match shake-correct';
         }
+
         matchingCardArray.length = 0;
     }
 
@@ -109,11 +110,11 @@ class Game {
         }
         // if the cards are matching, leave flipped otherwise, flipped them back
         if (matchingCardArray[0].symbol === matchingCardArray[1].symbol) {
-            game.match();
+           game.match();
         } else {
             for (let card in matchingCardArray) {
                 matchingCardArray[card].listItem.classList.add('no-match');
-                matchingCardArray[card].listItem.classList.add('shake');
+                matchingCardArray[card].listItem.classList.add('shake-incorrect');
             }
             setTimeout('game.noMatch()', 800);
         }
