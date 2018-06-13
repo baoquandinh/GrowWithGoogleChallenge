@@ -7,7 +7,7 @@
 
 let matchingCardArray = [];
 let starList = document.querySelector('.stars');
-let starFragment = document.createDocumentFragment();
+// let starFragment = document.createDocumentFragment();
 
 
 class Game {
@@ -63,21 +63,20 @@ class Game {
     resetStars() {
         console.log('here');
         console.log(this);
-        this.starListItem =  document.createElement('li');
-        this.starItem = document.createElement('i');
-        this.starItem.className = 'fa fa-star';
+
         this.starCounter = starList.childElementCount;
         if (this.starCounter === 3) {
             return;
         }
         console.log(this);
         while (this.starCounter < 3) {
-            this.starListItem.appendChild(this.starItem);
-            starFragment.appendChild(this.starListItem);
+            let starListItem =  document.createElement('li');
+            let starItem = document.createElement('i');
+            starItem.className = 'fa fa-star';
+            starListItem.appendChild(starItem);
+            starList.appendChild(starListItem);
             this.starCounter++;
         }
-
-        starList.appendChild(starFragment);
     }
 
     // Show that cards are matching
@@ -106,6 +105,9 @@ class Game {
 
         }
         if (this.wrongCounter === 2) {
+            game.removeStars();
+        }
+        if (this.wrongCounter === 3) {
             game.removeStars();
         }
         // if the cards are matching, leave flipped otherwise, flipped them back

@@ -121,9 +121,15 @@ h1 {
 .score-panel .stars li {
     list-style: none;
     display: inline-block;
+    margin: inherit;
+    padding: inherit;
 }
 
 .score-panel .restart {
     float: right;
     cursor: pointer;
+}
+
+.hide {
+    font-size: 0px;
 }
