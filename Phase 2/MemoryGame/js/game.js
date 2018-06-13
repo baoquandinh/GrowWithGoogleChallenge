@@ -23,12 +23,13 @@ class Game {
         let deck = new Deck();
         deck.shuffle();
         deck.create();
+        game.createStars();
     }
 
     // Restart the game with the same deck, just randomizes the position and resets move count along with star counter
     restart() {
         game.resetCounter();
-        game.resetStars();
+        game.createStars();
         for (let card in cards) {
             cards[card].remove();
         }
@@ -60,7 +61,7 @@ class Game {
     }
 
     // Regardless of how many stars are left, this will set the stars back to 3
-    resetStars() {
+    createStars() {
         console.log('here');
         console.log(this);
 
@@ -100,14 +101,10 @@ class Game {
 
     // Checks the two selected cards to see if they are a match
     checkForMatch() {
-        if (game.wrongCounter === 1) {
-            game.removeStars();
-
-        }
-        if (this.wrongCounter === 2) {
+        if (game.wrongCounter === 8) {
             game.removeStars();
         }
-        if (this.wrongCounter === 3) {
+        if (this.wrongCounter === 16) {
             game.removeStars();
         }
         // if the cards are matching, leave flipped otherwise, flipped them back
@@ -116,8 +113,9 @@ class Game {
         } else {
             for (let card in matchingCardArray) {
                 matchingCardArray[card].listItem.classList.add('no-match');
+                matchingCardArray[card].listItem.classList.add('shake');
             }
-            setTimeout('game.noMatch()', 1000);
+            setTimeout('game.noMatch()', 800);
         }
     }
 }
