@@ -60,7 +60,7 @@ class Game {
 
     startTimer() {
         this.sec = 0;
-        this.min = 11;
+        this.min = 0;
         this.hour = 0;
         setInterval(game.timer, 1000);
     }
