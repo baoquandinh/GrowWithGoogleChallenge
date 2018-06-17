@@ -130,4 +130,21 @@ h1 {
     cursor: pointer;
 }
 
+/*
+*   Styles for the Winner popup box
+*/
+
+.winner-popup {
+    display: none;
+}
+
+.winner-popup.show {
+    display: block;
+    padding: 15px;
+    background-color: #f44336;
+    color: white;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
 
