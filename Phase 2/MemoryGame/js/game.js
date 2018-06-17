@@ -188,6 +188,7 @@ class Game {
         if ((this.moveCounter >= cards.length/2) && (matchingCard.length === cards.length) ) {
             console.log("CONGRATES YOU WON");
             document.querySelector('.winner-popup').classList.add('show');
+            clearInterval(game.interval);
         } else {
             console.log("No point checking yet");
         }
