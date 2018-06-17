@@ -1,4 +1,5 @@
 # Memory Game Project
+A basic memory game that tests your memory powers! Try to match all the possible cards as fast as possible. 
 
 ## Table of Contents
 
@@ -6,15 +7,10 @@
 * [Contributing](#contributing)
 
 ## Instructions
+Select a card and try to match it with another face down card. If the card matches, it should remain face up, otherwise it will face back down. The timer will start as soon as the first card is clicked and will continue till the game ends. 
 
-The starter project has some HTML and CSS styling to display a static version of the Memory Game project. You'll need to convert this project from a static project to an interactive one. This will require modifying the HTML and CSS files, but primarily the JavaScript file.
+## Contributing
 
-To get started, open `js/game.js` and start building out the app's functionality
+This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
 
-For specific, detailed instructions, look at the project instructions in the [Udacity Classroom](https://classroom.udacity.com/me).
-
-## License
-
-Memory Game Project is available under the MIT license. See the LICENSE file for more info.
-
-For details, check out [LICENSE](LICENSE).
+For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
