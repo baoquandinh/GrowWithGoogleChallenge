@@ -135,11 +135,11 @@ h1 {
 */
 
 .winner-popup {
-    display: none;
+    visibility: hidden;
 }
 
 .winner-popup.show {
-    display: block;
+    visibility: visible;
     padding: 15px;
     background-color: #f44336;
     color: white;
