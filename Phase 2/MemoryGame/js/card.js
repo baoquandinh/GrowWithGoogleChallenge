@@ -14,7 +14,7 @@ class Card {
 
      // Flips the card
      flip(evt) {
-        if (matchingCardArray.length === 2 ) {
+        if (tempMatchingCardArray.length === 2 ) {
             console.log("Please wait");
         } else {
             let item = evt.target;
@@ -27,7 +27,7 @@ class Card {
             } else {
                 this.isFlipped = true;
                 game.updateMoves();
-                matchingCardArray.push(this);
+                tempMatchingCardArray.push(this);
 
                 if (game.counter % 2 == 0) {
                     game.checkForMatch();
