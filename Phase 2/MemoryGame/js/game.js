@@ -5,7 +5,8 @@
 *  - Restarts the game
 */
 
-let matchingCardArray = [];
+let tempMatchingCardArray = [];
+let matchingCard = [];
 let starList = document.querySelector('.stars');
 
 
@@ -28,6 +29,7 @@ class Game {
 
     // Restart the game with the same deck, just randomizes the position and resets move count along with star counter
     restart() {
+        document.querySelector('.winner-popup').classList.remove('show');
         game.resetTimer();
         game.resetCounter();
         game.createStars();
@@ -35,7 +37,8 @@ class Game {
             cards[card].remove();
         }
         cards = [];
-        matchingCardArray = [];
+        tempMatchingCardArray = [];
+        matchingCard = [];
         game.start();
     }
 
@@ -140,22 +143,23 @@ class Game {
 
     // Show that cards are matching
     match() {
-        for (let card in matchingCardArray) {
-            matchingCardArray[card].isMatched = true;
-            matchingCardArray[card].listItem.className = 'card match';
+        for (let card in tempMatchingCardArray) {
+            tempMatchingCardArray[card].isMatched = true;
+            tempMatchingCardArray[card].listItem.className = 'card match';
+            matchingCard.push(tempMatchingCardArray[card]);
         }
 
-        matchingCardArray.length = 0;
+        tempMatchingCardArray.length = 0;
     }
 
     // Cards that don't match are flipped back over
     noMatch() {
-        for (let card in matchingCardArray) {
-            matchingCardArray[card].listItem.className = 'card';
-            matchingCardArray[card].isFlipped = false;
+        for (let card in tempMatchingCardArray) {
+            tempMatchingCardArray[card].listItem.className = 'card';
+            tempMatchingCardArray[card].isFlipped = false;
         }
         game.wrongCounter += 1;
-        matchingCardArray.length = 0;
+        tempMatchingCardArray.length = 0;
     }
 
     // Checks the two selected cards to see if they are a match
@@ -163,26 +167,30 @@ class Game {
         if (this.wrongCounter === cards.length/2) {
             game.removeStars();
         }
-        if (this.moveCounter === cards.length/2) {
-            game.checkForWinner()
-        }
         if (this.wrongCounter === cards.length) {
             game.removeStars();
         }
         // if the cards are matching, leave flipped otherwise, flipped them back
-        if (matchingCardArray[0].symbol === matchingCardArray[1].symbol) {
+        if (tempMatchingCardArray[0].symbol === tempMatchingCardArray[1].symbol) {
            game.match();
-        } else {
-            for (let card in matchingCardArray) {
-                matchingCardArray[card].listItem.classList.add('no-match');
-                matchingCardArray[card].listItem.classList.add('shake-incorrect');
+           game.checkForWinner();
+        }
+        else {
+            for (let card in tempMatchingCardArray) {
+                tempMatchingCardArray[card].listItem.classList.add('no-match');
+                tempMatchingCardArray[card].listItem.classList.add('shake-incorrect');
             }
             setTimeout('game.noMatch()', 800);
         }
     }
 
     checkForWinner() {
-       console.log("checking for winner");
+        if ((this.moveCounter >= cards.length/2) && (matchingCard.length === cards.length) ) {
+            console.log("CONGRATES YOU WON");
+            document.querySelector('.winner-popup').classList.add('show');
+        } else {
+            console.log("No point checking yet");
+        }
     }
 }
 
