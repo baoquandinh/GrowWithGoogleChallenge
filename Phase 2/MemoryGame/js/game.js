@@ -7,7 +7,6 @@
 
 let matchingCardArray = [];
 let starList = document.querySelector('.stars');
-// let starFragment = document.createDocumentFragment();
 
 
 class Game {
@@ -18,7 +17,6 @@ class Game {
         this.moves = document.querySelector(".moves");
         this.stars = document.querySelector(".stars");
         this.timerElement = document.querySelector(".timer");
-
     }
     // Creates a new deck and shuffles
     start() {
@@ -55,14 +53,15 @@ class Game {
 
     // Restarts the timer
     resetTimer() {
-
+        clearInterval(game.interval);
+        this.timerElement.textContent = "00:00:00";
     }
 
     startTimer() {
         this.sec = 0;
         this.min = 0;
         this.hour = 0;
-        setInterval(game.timer, 1000);
+        this.interval = setInterval(game.timer, 1000);
     }
 
     timer() {
@@ -108,15 +107,7 @@ class Game {
             console.log("I pass too")
             game.timerElement.innerHTML = `${game.hour}:${game.min}:${game.sec}`;
         }
-        console.log(`${game.hour}:${game.min}:${game.sec}`);
-
     }
-
-
-
-
-
-    // Stars the timer
 
     // Resets all the counters
     resetCounter() {
@@ -169,10 +160,13 @@ class Game {
 
     // Checks the two selected cards to see if they are a match
     checkForMatch() {
-        if (game.wrongCounter === 8) {
+        if (this.wrongCounter === cards.length/2) {
             game.removeStars();
         }
-        if (this.wrongCounter === 16) {
+        if (this.moveCounter === cards.length/2) {
+            game.checkForWinner()
+        }
+        if (this.wrongCounter === cards.length) {
             game.removeStars();
         }
         // if the cards are matching, leave flipped otherwise, flipped them back
@@ -185,6 +179,10 @@ class Game {
             }
             setTimeout('game.noMatch()', 800);
         }
+    }
+
+    checkForWinner() {
+       console.log("checking for winner");
     }
 }
 
