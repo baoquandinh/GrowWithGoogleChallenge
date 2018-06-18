@@ -96,6 +96,10 @@ h1 {
     background: #02ccba;
     font-size: 33px;
 }
+.deck .card.no-match {
+    background: red;
+}
+
 
 /*
  * Styles for the Score Panel
@@ -117,9 +121,30 @@ h1 {
 .score-panel .stars li {
     list-style: none;
     display: inline-block;
+    margin: inherit;
+    padding: inherit;
 }
 
 .score-panel .restart {
     float: right;
     cursor: pointer;
 }
+
+/*
+*   Styles for the Winner popup box
+*/
+
+.winner-popup {
+    visibility: hidden;
+}
+
+.winner-popup.show {
+    visibility: visible;
+    padding: 15px;
+    background-color: #f44336;
+    color: white;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+
